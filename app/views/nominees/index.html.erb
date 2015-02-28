@@ -1,0 +1,45 @@
+<h1>Listing nominees</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nominee mail</th>
+      <th>Nominee name</th>
+      <th>Cv</th>
+      <th>Statement</th>
+      <th>Committee check</th>
+      <th>Committee check count</th>
+      <th>Chairman check</th>
+      <th>Confirmed</th>
+      <th>Not confirmed</th>
+      <th>Abstained</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @nominees.each do |nominee| %>
+      <tr>
+        <td><%= nominee.nominee_mail %></td>
+        <td><%= nominee.nominee_name %></td>
+        <td><%= nominee.cv %></td>
+        <td><%= nominee.statement %></td>
+        <td><%= nominee.committee_check %></td>
+        <td><%= nominee.committee_check_count %></td>
+        <td><%= nominee.chairman_check %></td>
+        <td><%= nominee.confirmed %></td>
+        <td><%= nominee.not_confirmed %></td>
+        <td><%= nominee.abstained %></td>
+        <td><%= link_to 'Show', nominee %></td>
+        <td><%= link_to 'Edit', edit_nominee_path(nominee) %></td>
+        <td><%= link_to 'Destroy', nominee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Nominee', new_nominee_path %>
